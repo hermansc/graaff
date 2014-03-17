@@ -1,0 +1,7 @@
+{{range $i,$p := .Posts}}
+  {{if $i}}<hr>{{end}}
+  <a href="./{{.Filename}}"><h2>{{$p.Title}}</h2></a>
+  <p>Author: <em>{{$p.Author}}</em><br/>Published: <em>{{$p.Published}}</em></p>
+  <p>{{$p.Abstract}}</p>
+  <p><a href="./{{.Filename}}">Read more...</a></p>
+{{end}}
