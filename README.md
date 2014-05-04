@@ -11,9 +11,10 @@ The goals for this project were:
 Go/Python/Foobar.
 * I don't need automatic reloading, site-generation, building nor any other
 "magic".
-* I use markdown, not Textile or *X*.  * *Fast*, this is much thanks to a great
-[markdown library](https://github.com/russross/blackfriday) but also due to
-Graaff's simplicity.
+* I use markdown, not Textile or *<insert markdown-fork here>*.
+* *Fast*, this is much thanks to a great [markdown
+library](https://github.com/russross/blackfriday) but also due to Graaff's
+simplicity.
 
 ## Getting started with Graaff
 
@@ -40,7 +41,7 @@ A simple blog-post looks like this:
     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
     doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
     veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-    
+
 Then by editing the layout we can access the blog-variables:
 
     <h1>{{.Title}}</h1>
@@ -111,14 +112,26 @@ As with everything simple, there are some things that fits for me, but perhaps
 not for you. One is the generation of the overview-page (`index.html`) and the
 other handling of dates.
 
+### Global variables
+
 The first, the overview page is "special" in the way that only the global
 variables and some variables specified in the code, are available to the
 template. These are:
-`{{.Author}}`,`{{.Published}}`,`{{.Title}}`,`{{.Abstract}}` and
-`{{.Filename}}`. Thus if you want custom variables in this overview you need to
-fork the repository and customize the code for yourself. It should be as simple
+
+* `{{.Author}}`
+* `{{.Published}}`
+* `{{.Title}}`
+* `{{.Abstract}}`
+* `{{.Filename}}`
+* `{{.Category}}`
+* `{{.SiteName}}`
+
+Thus if you want custom variables in this overview you need to fork the
+repository and customize the code for yourself. It should be as simple
 as changing the `Post`-struct and appending the right values in the
 `main()`-function.
+
+### Dates
 
 The second is handling of dates. As I wanted to sort the posts based on
 publish-date, the code accepts two formats:
